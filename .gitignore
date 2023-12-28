@@ -3,8 +3,11 @@
 
 # White List
 !.gitignore
+!.tool-versions
 !.config/
 !.config/**/*
+!.tools
+!.tools/**/*
 
 # OS and Cache files
 .DS_Store
