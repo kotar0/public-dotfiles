@@ -1,8 +1,10 @@
 # Ignore All
+*
 
 # White List
-
-
+!.gitignore
+!.config/
+!.config/*
 
 # OS and Cache files
 .DS_Store
