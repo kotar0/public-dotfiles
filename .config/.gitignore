@@ -1,0 +1,8 @@
+# Ignore all
+# *
+
+# Whitelist
+!.gitignore
+!brew
+!brew/**
+!fish/**
