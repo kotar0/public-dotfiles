@@ -9,8 +9,6 @@ defaults write -g com.apple.keyboard.fnState 1
 defaults write com.apple.AppleMultitouchTrackpad Clicking 1
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking 1
 defaults write com.apple.dock autohide 1
-defaults write com.apple.dock persistent-apps (
-)
 defaults write com.apple.dock tilesize 8
 defaults write NSGlobalDomain com.apple.swipescrolldirection 0
 defaults write com.apple.finder FXDefaultSearchScope SCcf
