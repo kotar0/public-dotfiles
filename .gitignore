@@ -1,0 +1,20 @@
+# Ignore All
+
+# White List
+
+
+
+# OS and Cache files
+.DS_Store
+Thumbs.db
+# *.o
+# \#*#
+# *#
+# .#*
+# .*~
+# *~
+# *.dSYM
+# *.log
+# *.dvi
+# *.aux
+# *.elc
