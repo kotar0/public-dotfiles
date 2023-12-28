@@ -19,7 +19,7 @@ read -r
 # 3. git remote add origin git@github...
 # 4. git pull origin main
 # Initialize Git repository and pull configuration files
-GIT_REPO="git@github.com:yourusername/yourrepo.git" # Replace with your repository
+GIT_REPO="git@github.com:kotar0/public-dotfiles.git"
 git init
 git remote add origin $GIT_REPO
 if git pull origin main; then
