@@ -1,3 +1,5 @@
+#!/bin/bash
+
 cd $HOME
 
 # Xcode tool install
@@ -5,12 +7,15 @@ xcode-select --install
 
 # SSH Key Generation and GitHub Setup
 # Check for existing SSH key, generate if not present, and copy to clipboard.
-if [ ! -f ~/.ssh/id_rsa.pub ]; then
+# SSH Key Generation and GitHub Setup
+ssh_key="$HOME/.ssh/id_rsa.pub"
+if [ ! -f "$ssh_key" ]; then
+	echo "Generating SSH keys..."
 	ssh-keygen -t rsa -b 4096 -C "kotaro@temotoe.com" # Replace with your email
 	eval "$(ssh-agent -s)"
 	ssh-add ~/.ssh/id_rsa
 fi
-pbcopy <~/.ssh/id_rsa.pub
+pbcopy <"$ssh_key"
 echo "SSH key copied to clipboard. Please add it to your GitHub account. Press enter to continue."
 read -r
 
@@ -20,18 +25,27 @@ read -r
 # 4. git pull origin main
 # Initialize Git repository and pull configuration files
 GIT_REPO="git@github.com:kotar0/public-dotfiles.git"
-git init
-git remote add origin $GIT_REPO
-if git pull origin main; then
-	echo "Successfully pulled configuration files from $GIT_REPO."
+if [ ! -d "$HOME/.git" ]; then
+	git init
+	git remote add origin "$GIT_REPO"
+	if git pull origin main; then
+		echo "Successfully pulled configuration files from $GIT_REPO."
+	else
+		echo "Failed to pull configuration files. Check your SSH keys and repository settings."
+		exit 1
+	fi
 else
-	echo "Failed to pull configuration files. Check your SSH keys and repository settings."
-	exit 1
+	echo "Git already initialized. Skipping."
 fi
 
-# brew install
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew bundle --file $HOME/.config/brew/Brewfile
+# Homebrew install
+if ! command -v brew &>/dev/null; then
+	echo "Installing Homebrew..."
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+else
+	echo "Homebrew already installed. Skipping."
+fi
+brew bundle --file "$HOME/.config/brew/Brewfile"
 
 # Apply OS preference
 sudo sh $HOME/.config/macos/setup_new_mac.sh
