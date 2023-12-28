@@ -1,8 +1,16 @@
 # Ignore all
-# *
+*
 
 # Whitelist
+starship.toml
 !.gitignore
+!nvim
+!nvim/**
 !brew
 !brew/**
+!fish
 !fish/**
+!wezterm
+!wezterm/**
+!git
+!git/**

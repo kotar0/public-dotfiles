@@ -1,0 +1,22 @@
+[init]
+  defaultBranch = main
+
+[push]
+  default = simple
+
+[color]
+  status = auto
+  diff = auto
+  branch = auto
+  interactive = auto
+  grep = auto
+  ui = auto
+
+[hub]
+  protocol = ssh
+
+[github]
+  user = kotar0
+
+[ghq]
+  root = ~/.ghq

@@ -4,11 +4,12 @@
 # White List
 !.gitignore
 !.config/
-!.config/*
+!.config/**/*
 
 # OS and Cache files
 .DS_Store
 Thumbs.db
+node_modules
 # *.o
 # \#*#
 # *#
