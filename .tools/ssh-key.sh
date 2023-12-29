@@ -17,7 +17,21 @@ fi
 if [ ! -f "$ssh_key" ]; then
 	echo "Generating SSH keys..."
 	ssh-keygen -t rsa -b 4096 -C "$email" -f "$HOME/.ssh/id_rsa" # パスを明示的に指定
-	eval "$(ssh-agent -s)"
+	ssh-agent -s
+
+	if [ ! -f "$HOME/.ssh/config" ]; then
+		touch $HOME/.ssh/config
+	fi
+
+	# Open your ~/.ssh/config file and add the following lines.
+	echo "Adding configuration to ~/.ssh/config"
+	{
+		echo "Host github.com"
+		echo "  AddKeysToAgent yes"
+		echo "  UseKeychain yes"
+		echo "  IdentityFile ~/.ssh/id_rsa" # If your SSH key file has a different name or path, modify accordingly.
+	} >>$HOME/.ssh/config
+
 	ssh-add "$HOME/.ssh/id_rsa"
 fi
 
