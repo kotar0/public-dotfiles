@@ -11,6 +11,7 @@ alias cmc=pbcopy
 # Application initialization
 fish_add_path /opt/homebrew/bin #brew
 rtx activate fish | source #rtx
+export XDG_CONFIG_HOME="$HOME/.config" #set .config dir for several apps
 
 if status is-interactive
     set -U FZF_LEGACY_KEYBINDINGS 0

@@ -4,6 +4,8 @@
 # Whitelist
 starship.toml
 !.gitignore
+!rtx
+!rtx/**
 !nvim
 !nvim/**
 !brew

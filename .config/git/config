@@ -18,9 +18,12 @@
 [hub]
   protocol = ssh
 
+[user]
+  name = kotar0
+  email = kotaro@temotoe.com
+
 [github]
   user = kotar0
-  email = kotaro@temotoe.com
 
 [ghq]
   root = ~/.ghq

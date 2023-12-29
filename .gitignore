@@ -3,6 +3,7 @@
 
 # White List
 !.gitignore
+!.gitconfig
 !.tool-versions
 !.config/
 !.config/**/*
