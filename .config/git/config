@@ -1,6 +1,9 @@
 [init]
   defaultBranch = main
 
+[safe]
+	directory = /Users/kotaro
+
 [push]
   default = simple
 
@@ -17,6 +20,7 @@
 
 [github]
   user = kotar0
+  email = kotaro@temotoe.com
 
 [ghq]
   root = ~/.ghq

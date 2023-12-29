@@ -1,9 +1,12 @@
 #!/bin/bash
 
+
+
 cd $HOME
 
-# 4. git pull origin main
-# Initialize Git repository and pull configuration files
+# Install Rossetta 2
+sudo softwareupdate --install-rosetta
+
 # Homebrew install
 if ! command -v brew &>/dev/null; then
 	echo "Installing Homebrew..."
