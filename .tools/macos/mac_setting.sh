@@ -48,7 +48,6 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 # Four-letter codes for the other view modes: `icnv`, 'Nlsv',`clmv`, `glyv`
 defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
 
-
 # Input Sources > Select next source in Input menu : Cmd + Space
 defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 61 "
   <dict>
@@ -88,10 +87,10 @@ defaults write com.apple.finder AppleShowAllFiles TRUE
 # 復帰コマンド defaults write com.apple.finder AppleShowAllFiles FALSE
 
 # キーボードのFunctionキーをFキーとして利用する
-defaults write -g com.apple.keyboard.fnState -int 1;
+defaults write -g com.apple.keyboard.fnState -int 1
 
 # Spaceの順番を固定する。TRUEだと、利用状況に応じて自動で順番が入れ替わる。
-defaults write com.apple.dock mru-spaces -bool false;
+defaults write com.apple.dock mru-spaces -bool false
 
 # スクリーンショットの保存先を変更
 defaults write com.apple.screencapture location ~/Downloads
@@ -101,6 +100,9 @@ defaults write com.apple.dock tilesize -int 8
 
 # タップ音が鳴らないようにする
 defaults write com.apple.AppleMultitouchTrackpad ActuationStrength -int 0
+
+# 特殊文字のホバーをキャンセル（連続入力を可能に）
+defaults write -g ApplePressAndHoldEnabled -bool false
 
 echo "再起動が必要です"
 
