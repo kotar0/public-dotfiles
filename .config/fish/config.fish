@@ -5,7 +5,8 @@ set -gx TERM xterm-256color
 # Ailases
 alias ll='exa -bhgla --icons --git'
 alias repos='cd $(ghq root)/$(ghq list | fzy)'
-alias v=nvim
+alias v='nvim .'
+alias gui=gitui
 alias cmc=pbcopy
 
 # Application initialization
