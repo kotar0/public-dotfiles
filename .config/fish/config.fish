@@ -12,7 +12,11 @@ alias cmc=pbcopy
 
 # Application initialization
 fish_add_path /opt/homebrew/bin #brew
-mise activate fish | source #rtx
+fish_add_path /opt/homebrew/sbin #brew
+export HOMEBREW_BUNDLE_FILE="$HOME/.config/brew/Brewfile"
+
+
+mise activate fish | source #mise
 export XDG_CONFIG_HOME="$HOME/.config" #set .config dir for several apps
 
 if status is-interactive
