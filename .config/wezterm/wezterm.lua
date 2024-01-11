@@ -34,6 +34,9 @@ end
 -- For example, changing the color scheme:
 config.color_scheme = "Night Owl (Gogh)"
 
+-- cursor
+config.default_cursor_style = "SteadyBar"
+
 -- Font
 config.font = wezterm.font_with_fallback({
 	{ family = "Dank mono", scale = 1.2 },

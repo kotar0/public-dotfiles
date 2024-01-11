@@ -1,6 +1,7 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
+    commit = "1b5bbb54b385c4eae217113f72df5284bc3cc94b",
     opts = {
       ensure_installed = {
         "astro",
@@ -18,6 +19,9 @@ return {
         "scss",
         "sql",
         "svelte",
+        "tsx",
+        "typescript",
+        "javascript",
       },
     },
 

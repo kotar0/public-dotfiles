@@ -1,0 +1,5 @@
+[tools]
+node = "20"
+pnpm = "8"
+deno = "latest"
+rust = "latest"

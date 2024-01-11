@@ -313,4 +313,8 @@ return {
       enable = false,
     },
   },
+  -- {
+  --   "HiPhish/rainbow-delimiters.nvim",
+  --   event = "BufEnter",
+  -- },
 }
