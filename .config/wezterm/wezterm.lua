@@ -40,6 +40,7 @@ config.default_cursor_style = "SteadyBar"
 -- Font
 config.font = wezterm.font_with_fallback({
 	{ family = "Dank mono", scale = 1.2 },
+	{ family = "Source Han Code JP", weight = "Medium" },
 	{ family = "Symbols Nerd Font Mono", scale = 0.85 },
 })
 config.font_size = 12.0
@@ -96,12 +97,39 @@ config.keys = {
 	{ key = "l", mods = "ALT|CMD", action = act.ActivateTabRelative(1) },
 	{ key = "LeftArrow", mods = "ALT|CMD", action = act.ActivateTabRelative(-1) },
 	{ key = "RightArrow", mods = "ALT|CMD", action = act.ActivateTabRelative(1) },
+	-- Create Pnae
 	{ key = "h", mods = "LEADER", action = act.SplitHorizontal({
 		domain = "CurrentPaneDomain",
 	}) },
 	{ key = "v", mods = "LEADER", action = act.SplitVertical({
 		domain = "CurrentPaneDomain",
 	}) },
+	-- Move Pane
+	{
+		key = "j",
+		mods = "CTRL",
+		action = act.ActivatePaneDirection("Down"),
+	},
+	{
+		key = "k",
+		mods = "CTRL",
+		action = act.ActivatePaneDirection("Up"),
+	},
+	{
+		key = "h",
+		mods = "CTRL|SHIFT",
+		action = act.ActivatePaneDirection("Left"),
+	},
+	{
+		key = "l",
+		mods = "CTRL|SHIFT",
+		action = act.ActivatePaneDirection("Right"),
+	},
+	{
+		key = "z",
+		mods = "CTRL",
+		action = act.TogglePaneZoomState,
+	},
 }
 
 -- and finally, return the configuration to wezterm

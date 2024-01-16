@@ -53,13 +53,15 @@ keymap.set("n", "<C-w><right>", "<C-w>>")
 keymap.set("n", "<C-w><up>", "<C-w>+")
 keymap.set("n", "<C-w><down>", "<C-w>-")
 
+-- Resign
+
 -- Copilot
 vim.g.copilot_no_tab_map = true
 
 -- Move Window
 -- keymap.set("n", "sh", "<C-w>")
---
+
 -- Diagnostics
-keymap.set("n", "<C-j>", function()
-  vim.diagnostic.goto_next()
-end, opts)
+-- keymap.set("n", "<C-j>", function()
+--  vim.diagnostic.goto_next()
+-- end, opts)
