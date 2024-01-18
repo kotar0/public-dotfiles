@@ -14,6 +14,7 @@ brew "curl"
 brew "eza"
 brew "fish"
 brew "fzy"
+brew "gh"
 brew "ghq"
 brew "git"
 brew "gitui"
@@ -44,6 +45,7 @@ brew "yarn"
 brew "z"
 cask "adobe-creative-cloud"
 cask "alfred"
+cask "android-studio"
 cask "appcleaner"
 cask "bettertouchtool"
 cask "docker"
@@ -67,6 +69,7 @@ mas "Developer", id: 640199958
 mas "GarageBand", id: 682658836
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
+mas "Kindle", id: 302584613
 mas "LINE", id: 539883307
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
@@ -114,4 +117,5 @@ vscode "unifiedjs.vscode-mdx"
 vscode "usernamehw.errorlens"
 vscode "VisualStudioExptTeam.intellicode-api-usage-examples"
 vscode "VisualStudioExptTeam.vscodeintellicode"
+vscode "william-voyek.vscode-nginx"
 vscode "YoavBls.pretty-ts-errors"
