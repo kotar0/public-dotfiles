@@ -40,7 +40,7 @@ config.default_cursor_style = "SteadyBar"
 -- Font
 config.font = wezterm.font_with_fallback({
 	{ family = "Dank mono", scale = 1.2 },
-	{ family = "Source Han Code JP", weight = "Medium" },
+	{ family = "Noto Sans Mono CJK JP", weight = "Medium" },
 	{ family = "Symbols Nerd Font Mono", scale = 0.85 },
 })
 config.font_size = 12.0
