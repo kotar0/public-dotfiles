@@ -18,6 +18,54 @@ wezterm.on("update-right-status", function(window, pane)
 	}))
 end)
 
+local function basename(s)
+	return string.gsub(s, "(.*[/\\])(.*)", "%2")
+end
+
+wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
+	local nerd_icons = {
+		nvim = wezterm.nerdfonts.cod_symbol_namespace,
+		bash = wezterm.nerdfonts.dev_terminal,
+		fish = wezterm.nerdfonts.md_fish,
+		ssh = wezterm.nerdfonts.mdi_server,
+		top = wezterm.nerdfonts.mdi_monitor,
+		docker = wezterm.nerdfonts.dev_docker,
+		node = wezterm.nerdfonts.dev_nodejs_small,
+		gitui = wezterm.nerdfonts.cod_source_control,
+	}
+
+	local icon_colors = {
+		nvim = "0xff000000",
+		bash = "0x00ffffff",
+		fish = "0x00ffffff",
+		ssh = "0x00ffffff",
+		top = "0x00ffffff",
+		docker = "0xff000000",
+		node = "0xff000000",
+		gitui = "0xff000000",
+	}
+
+	local zoomed = ""
+	if tab.active_pane.is_zoomed then
+		zoomed = "[Z] "
+	end
+	local pane = tab.active_pane
+	local process_name = basename(pane.foreground_process_name)
+	local icon = nerd_icons[process_name]
+	local color = icon_colors[process_name] or "0xff000000" -- デフォルトの色
+	local index = tab.tab_index + 1
+	local cwd = basename(pane.current_working_dir)
+
+	-- 例) 1:project_dir | zsh
+	local title = index .. ": " .. cwd .. "  | " .. process_name
+	if icon ~= nil then
+		title = icon .. "  " .. zoomed .. title
+	end
+	return {
+		{ Text = " " .. title .. " " },
+	}
+end)
+
 -- ---------------------------------------------------
 
 -- This table will hold the configuration.
@@ -98,10 +146,10 @@ config.keys = {
 	{ key = "LeftArrow", mods = "ALT|CMD", action = act.ActivateTabRelative(-1) },
 	{ key = "RightArrow", mods = "ALT|CMD", action = act.ActivateTabRelative(1) },
 	-- Create Pnae
-	{ key = "h", mods = "LEADER", action = act.SplitHorizontal({
+	{ key = "v", mods = "LEADER", action = act.SplitHorizontal({
 		domain = "CurrentPaneDomain",
 	}) },
-	{ key = "v", mods = "LEADER", action = act.SplitVertical({
+	{ key = "h", mods = "LEADER", action = act.SplitVertical({
 		domain = "CurrentPaneDomain",
 	}) },
 	-- Move Pane
