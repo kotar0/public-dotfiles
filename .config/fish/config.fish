@@ -9,6 +9,7 @@ alias n='nvim .'
 alias c='code .'
 alias gui=gitui
 alias cmc=pbcopy
+alias g=git
 
 # Application initialization
 fish_add_path /opt/homebrew/bin #brew

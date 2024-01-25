@@ -17,6 +17,12 @@ keymap.set("n", "dw", '<Esc>viw"_d')
 -- Increment / Decrement
 keymap.set("n", "+", "<C-a>")
 
+-- Line movement
+keymap.set("n", "<M-j>", "<Cmd>move .+1<CR>==")
+keymap.set("x", "<M-j>", ":move '>+1<CR>gv=gv")
+keymap.set("n", "<M-k>", "<Cmd>move .-2<CR>==")
+keymap.set("x", "<M-k>", ":move '<-2<CR>gv=gv")
+
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
 keymap.set("i", "jk", "C-[", opts)
