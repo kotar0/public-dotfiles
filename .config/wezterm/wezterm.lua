@@ -1,22 +1,23 @@
 -- Pull in the wezterm API
 local wezterm = require("wezterm")
 
-wezterm.on("update-right-status", function(window, pane)
-	-- demonstrates shelling out to get some external status.
-	-- wezterm will parse escape sequences output by the
-	-- child process and include them in the status area, too.
-	local success, date, stderr = wezterm.run_child_process({ "date" })
-
-	-- However, if all you need is to format the date/time, then:
-	date = wezterm.strftime("%Y-%m-%d %H:%M:%S")
-
-	-- Make it italic and underlined
-	window.set_right_status(wezterm.format({
-		{ Attribute = { Underline = "Single" } },
-		{ Attribute = { Italic = true } },
-		{ Text = "Hello " .. date },
-	}))
-end)
+-- wezterm.on("update-right-status", function(window, pane)
+-- 	-- demonstrates shelling out to get some external status.
+-- 	-- wezterm will parse escape sequences output by the
+-- 	-- child process and include them in the status area, too.
+-- 	local success, date, stderr = wezterm.run_child_process({ "date" })
+--
+-- 	-- However, if all you need is to format the date/time, then:
+-- 	date = wezterm.strftime("%Y-%m-%d %H:%M:%S")
+--
+-- 	-- Make it italic and underlined
+-- 	window.set_right_status(wezterm.format({
+-- 		{ Attribute = { Underline = "Single" } },
+-- 		{ Attribute = { Italic = true } },
+-- 		{ Text = "Hello " .. date },
+-- 	}))
+-- end)
+--
 
 local function basename(s)
 	return string.gsub(s, "(.*[/\\])(.*)", "%2")
