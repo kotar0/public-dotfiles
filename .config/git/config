@@ -33,3 +33,5 @@
 
 [ghq]
   root = ~/.ghq
+[core]
+	editor = nvim
