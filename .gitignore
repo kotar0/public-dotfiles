@@ -9,6 +9,7 @@
 !.config/**/*
 !.tools
 !.tools/**/*
+!.services/
 
 # OS and Cache files
 .DS_Store
