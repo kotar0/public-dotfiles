@@ -1,4 +1,4 @@
-function portkill
+function killport
     if count $argv >/dev/null
         set port $argv[1]
         echo "Trying to kill process on port $port"
@@ -17,6 +17,6 @@ function portkill
             echo "No processes are running on port $port"
         end
     else
-        echo "Usage: portkill <port>"
+        echo "Usage: killport <port>"
     end
 end

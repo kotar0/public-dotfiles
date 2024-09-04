@@ -10,6 +10,7 @@
 !.tools
 !.tools/**/*
 !.services/
+!.services/**/*
 
 # OS and Cache files
 .DS_Store
