@@ -6,7 +6,7 @@ set fish_greeting ""
 alias ll='eza -bhgla --icons --git'
 alias repos='cd $(ghq root)/$(ghq list | fzy)'
 alias n='nvim .'
-alias c='code .'
+alias c='cursor .'
 alias gui=gitui
 alias cmc=pbcopy
 alias g=git
@@ -25,3 +25,6 @@ if status is-interactive
     starship init fish | source
     # Commands to run in interactive sessions can go here
 end
+
+# Added by Windsurf
+fish_add_path /Users/kotaro/.codeium/windsurf/bin
