@@ -28,3 +28,6 @@ end
 
 # Added by Windsurf
 fish_add_path /Users/kotaro/.codeium/windsurf/bin
+
+# Added by Antigravity
+fish_add_path /Users/kotaro/.antigravity/antigravity/bin
