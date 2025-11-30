@@ -19,3 +19,7 @@ fish/fish_variables
 !wezterm/**
 !git
 !git/**
+!cursor/**
+!alfred/**
+!gh/**
+!zsh/**
