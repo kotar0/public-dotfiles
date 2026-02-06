@@ -16,7 +16,6 @@ fish_add_path /opt/homebrew/bin #brew
 fish_add_path /opt/homebrew/sbin #brew
 export HOMEBREW_BUNDLE_FILE="$HOME/.config/brew/Brewfile"
 
-
 mise activate fish | source #mise
 export XDG_CONFIG_HOME="$HOME/.config" #set .config dir for several apps
 
@@ -31,3 +30,6 @@ fish_add_path /Users/kotaro/.codeium/windsurf/bin
 
 # Added by Antigravity
 fish_add_path /Users/kotaro/.antigravity/antigravity/bin
+
+# # Added by Claude Code
+export PATH="$HOME/.local/bin:$PATH"
