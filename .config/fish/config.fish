@@ -10,6 +10,7 @@ alias c='cursor .'
 alias gui=gitui
 alias cmc=pbcopy
 alias g=git
+alias hue='cd ~/projects/headquarters && claude'
 
 # Application initialization
 fish_add_path /opt/homebrew/bin #brew

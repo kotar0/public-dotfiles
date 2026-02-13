@@ -74,7 +74,6 @@ function generateBody(): RequestBody {
 
 // --- 生成したbodyを使用 ---
 const body = generateBody();
-
 // --- Fetch availability from API ---
 async function fetchAvailability() {
   if (!endpoint || !apiKey) {
