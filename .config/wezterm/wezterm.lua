@@ -67,6 +67,15 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	}
 end)
 
+-- Leader indicator
+wezterm.on("update-right-status", function(window, pane)
+	local leader = ""
+	if window:leader_is_active() then
+		leader = " LEADER "
+	end
+	window:set_right_status(leader)
+end)
+
 -- ---------------------------------------------------
 
 -- This table will hold the configuration.
@@ -95,7 +104,7 @@ config.font = wezterm.font_with_fallback({
 config.font_size = 12.0
 
 -- Tab
-config.hide_tab_bar_if_only_one_tab = true
+config.hide_tab_bar_if_only_one_tab = false -- デバッグ中: LEADERインジケーター確認のため一時的にfalse
 
 local tab_colors = {
 	background = "#011627",
@@ -138,47 +147,31 @@ config.window_decorations = "RESIZE"
 
 config.line_height = 1.3
 
+-- Debug
+config.debug_key_events = true
+
 -- Keymaps
 local act = wezterm.action
-config.leader = { key = "w", mods = "CTRL", timeout_milliseconds = 1000 }
+config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 2000 }
 config.keys = {
+	-- Tab
 	{ key = "h", mods = "ALT|CMD", action = act.ActivateTabRelative(-1) },
 	{ key = "l", mods = "ALT|CMD", action = act.ActivateTabRelative(1) },
 	{ key = "LeftArrow", mods = "ALT|CMD", action = act.ActivateTabRelative(-1) },
 	{ key = "RightArrow", mods = "ALT|CMD", action = act.ActivateTabRelative(1) },
-	-- Create Pnae
-	{ key = "v", mods = "LEADER", action = act.SplitHorizontal({
-		domain = "CurrentPaneDomain",
-	}) },
-	{ key = "h", mods = "LEADER", action = act.SplitVertical({
-		domain = "CurrentPaneDomain",
-	}) },
+	-- Split Pane
+	{ key = "v", mods = "LEADER", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+	{ key = "s", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
 	-- Move Pane
-	{
-		key = "j",
-		mods = "CTRL",
-		action = act.ActivatePaneDirection("Down"),
-	},
-	{
-		key = "k",
-		mods = "CTRL",
-		action = act.ActivatePaneDirection("Up"),
-	},
-	{
-		key = "h",
-		mods = "CTRL|SHIFT",
-		action = act.ActivatePaneDirection("Left"),
-	},
-	{
-		key = "l",
-		mods = "CTRL|SHIFT",
-		action = act.ActivatePaneDirection("Right"),
-	},
-	{
-		key = "z",
-		mods = "CTRL",
-		action = act.TogglePaneZoomState,
-	},
+	{ key = "h", mods = "CTRL", action = act.ActivatePaneDirection("Left") },
+	{ key = "j", mods = "CTRL", action = act.ActivatePaneDirection("Down") },
+	{ key = "k", mods = "CTRL", action = act.ActivatePaneDirection("Up") },
+	{ key = "l", mods = "CTRL", action = act.ActivatePaneDirection("Right") },
+	-- Resize Pane
+	{ key = "h", mods = "CTRL|SHIFT", action = act.AdjustPaneSize({ "Left", 5 }) },
+	{ key = "j", mods = "CTRL|SHIFT", action = act.AdjustPaneSize({ "Down", 5 }) },
+	{ key = "k", mods = "CTRL|SHIFT", action = act.AdjustPaneSize({ "Up", 5 }) },
+	{ key = "l", mods = "CTRL|SHIFT", action = act.AdjustPaneSize({ "Right", 5 }) },
 }
 
 -- and finally, return the configuration to wezterm

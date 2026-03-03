@@ -1,8 +1,8 @@
 [tools]
-node = "22.10.0"
+node = "24.13.1"
 pnpm = "8"
 deno = "2.0.3"
-rust = "latest"
+rust = "1.93.1"
 python = "3.12.2"
 java = "22"
 poetry = "1.8.5"

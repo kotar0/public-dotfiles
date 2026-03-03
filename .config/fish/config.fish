@@ -6,11 +6,13 @@ set fish_greeting ""
 alias ll='eza -bhgla --icons --git'
 alias repos='cd $(ghq root)/$(ghq list | fzy)'
 alias n='nvim .'
-alias c='cursor .'
+alias cur='cursor .'
 alias gui=gitui
 alias cmc=pbcopy
 alias g=git
-alias hue='cd ~/projects/headquarters && claude'
+alias c='claude'
+alias o='open .'
+alias hue='cd ~/projects/hue && claude'
 
 # Application initialization
 fish_add_path /opt/homebrew/bin #brew
